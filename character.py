@@ -8,13 +8,14 @@ class CharObject():
         self.y = y
         self.x_spd = 0
         self.y_vel = 0
-        self.max_spd = 12
-        self.max_vel = 18
+        self.max_spd = 20
+        self.max_vel = 36
+        self.len = 32
         if player_num == 1:
             self.color = [0, 0, 255]
         elif player_num == 2:
             self.color = [255, 0, 0]
-        self.rectangle = pygame.Rect([self.x, self.y, 16, 16])
+        self.rectangle = pygame.Rect([self.x, self.y, self.len, self.len])
 
     def draw(self, s):
         pygame.draw.rect(s, self.color, self.rectangle)
@@ -28,27 +29,27 @@ class CharObject():
 
     def update(self):
         if self.x_spd > 0:
-            self.x_spd -= 1
+            self.x_spd -= 2
         elif self.x_spd < 0:
-            self.x_spd += 1
+            self.x_spd += 2
         if self.y_vel < self.max_vel:
-            self.y_vel += 4
-        self.rectangle = pygame.Rect([self.x, self.y, 16, 16])
+            self.y_vel += 6
+        self.rectangle = pygame.Rect([self.x, self.y, self.len, self.len])
 
     def final_loc(self):
         self.y += self.y_vel
         self.x += self.x_spd
-        self.rectangle = pygame.Rect([self.x, self.y, 16, 16])
+        self.rectangle = pygame.Rect([self.x, self.y, self.len, self.len])
 
     def collide(self, target):
-        while pygame.Rect([self.x, self.y + self.y_vel, 16, 16]).colliderect(target):
+        while pygame.Rect([self.x, self.y + self.y_vel, self.len, self.len]).colliderect(target):
             if self.y_vel > 0:
                 self.y_vel -= 1
             if self.y_vel < 0:
                 self.y_vel += 1
             #self.rectangle = pygame.Rect([self.x, self.y, 16, 16])
 
-        while pygame.Rect([self.x + self.x_spd, self.y + self.y_vel, 16, 16]).colliderect(target):
+        while pygame.Rect([self.x + self.x_spd, self.y + self.y_vel, self.len, self.len]).colliderect(target):
             if self.x_spd > 0:
                 self.x_spd -= 1
             if self.x_spd < 0:

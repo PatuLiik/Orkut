@@ -7,7 +7,7 @@ pygame.init()
 
 player1 = character.CharObject(150, 100, 1)
 
-screen = pygame.display.set_mode([480, 270])
+screen = pygame.display.set_mode([960, 540])
 
 game_start = False
 
@@ -22,16 +22,16 @@ while True: #---MAIN LOOP---#
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:#JUMP1
                 game_start = True
-                player1.jump(-25)
+                player1.jump(-30)
             if event.key == pygame.K_0:#LEVEL1
                 game_start = True
                 level.level_create(0, screen, screen, screen, player1)
             
     keys = pygame.key.get_pressed()#MOVE1
     if keys[pygame.K_RIGHT]:
-        player1.move(2)
+        player1.move(4)
     if keys[pygame.K_LEFT]:
-        player1.move(-2)
+        player1.move(-4)
         
     #screen.fill([255, 160, 0])
     screen.blit(taust, [0,0])
