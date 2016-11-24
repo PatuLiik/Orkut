@@ -51,5 +51,5 @@ while True: #---MAIN LOOP---#
                                  
     pygame.display.flip()
 
-    pygame.time.wait(35)
+    pygame.time.wait(30)
                                 
