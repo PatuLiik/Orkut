@@ -22,7 +22,7 @@ while True: #---MAIN LOOP---#
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:#JUMP1
                 game_start = True
-                player1.jump(-30)
+                player1.jump(-48)
             if event.key == pygame.K_0:#LEVEL1
                 game_start = True
                 level.level_create(0, screen, screen, screen, player1)
